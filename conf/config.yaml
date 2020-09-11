@@ -1,0 +1,13 @@
+server:
+  addr : 0.0.0.0
+  port : 8888
+postgre:
+  host : localhost
+  port : 5432
+  username : postgres
+  password : 557809
+  dbname : blog
+  debug : false
+redis:
+  server : 127.0.0.1:6379
+

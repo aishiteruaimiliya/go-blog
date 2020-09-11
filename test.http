@@ -1,0 +1,40 @@
+GET http://localhost:8888/author/info?id=b00b16dd-c37b-2608-0083-e3013e7daea4
+Accept: application/json
+
+###
+GET http://localhost:8888/blog/all?id=ppppp
+Accept: application/json
+
+###
+POST http://localhost:8888/blog/blog
+Content-Type: application/json
+
+{"title": "this is a title","author": "ppppp","content": "this is content"}
+
+###
+PUT http://localhost:8888/contact/contact
+Content-Type: application/json
+
+{"cid": "b00b16dd-c37b-2608-0083-e3013e7daea4","tel": "123456","email": "475437085@qq.com"}
+
+###
+GET http://localhost:8888/blog/detail?id=674a87f1-5087-9241-f612-5dfe4a9506a9
+Accept: application/json
+
+###
+POST http://localhost:8888/account/login
+Content-Type: application/json
+
+{"account": "ppp","password":"123456"}
+
+###
+POST http://localhost:8888/account/register
+Content-Type: application/json
+
+{"account": "ppppp","password": "123456"}
+
+###
+GET http://localhost:8888/blog/id?id=123
+Accept: application/json
+auth:iamto
+###
