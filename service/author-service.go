@@ -5,20 +5,19 @@ import (
 	"blog/model/blogs"
 )
 
-func GetAuthorInfoByAccountId(id string)(blogs.Author,error){
-	db:=model.GetDB()
+func GetAuthorInfoByAccountId(id string) (blogs.User, error) {
+	db := model.GetDB()
 	defer db.Close()
-	var res blogs.Author
-	err := db.Model(&blogs.Author{}).Where(&blogs.Author{Aid: id}).First(&res).Error
+	var res blogs.User
+	err := db.Model(&blogs.User{}).Where(&blogs.User{Account: id}).First(&res).Error
 	if err != nil {
-		return blogs.Author{},err
+		return blogs.User{}, err
 	}
-	return res,nil
+	return res, nil
 }
 
-func UpdateInfo(author *blogs.Author)error{
-	db:=model.GetDB()
+func UpdateInfo(author *blogs.User) error {
+	db := model.GetDB()
 	defer db.Close()
-	return db.Model(blogs.Author{}).Updates(author).Error
+	return db.Model(blogs.User{}).Updates(author).Error
 }
-

@@ -3,52 +3,33 @@ package service
 import (
 	"blog/model"
 	"blog/model/blogs"
-	"fmt"
 )
 
-func AddComment(comment *blogs.Comment)error{
-	db:=model.GetDB()
+func AddComment(comment *blogs.Comment) error {
+	db := model.GetDB()
 	defer db.Close()
-	err := db.Create(comment).Error
-	if err != nil {
-		fmt.Println(err)
-		return err
-	}
-	return nil
+	return db.Create(comment).Error
 }
 
-func DeleteComment(cid string)error{
-	db:=model.GetDB()
+func DeleteComment(cid string) error {
+	db := model.GetDB()
 	defer db.Close()
-	err:=db.Delete(&blogs.Comment{},"cid=?",cid).Error
-	if err != nil {
-		fmt.Println(err)
-		return err
-	}
-	return nil
+	return db.Delete(&blogs.Comment{}, "cid=?", cid).Error
 }
 
-func FindCommentByBlog(bid string)([]blogs.Comment,error){
-	db:=model.GetDB()
+func FindCommentByBlog(bid string) ([]blogs.Comment, error) {
+	db := model.GetDB()
 	defer db.Close()
 	var comments []blogs.Comment
-	err:=db.Model(&blogs.Comment{}).Find(&comments,"bid=?",bid).Error
-	if err != nil {
-		return []blogs.Comment{},err
-	}else {
-		return comments,err
-	}
+	err := db.Model(&blogs.Comment{}).Find(&comments, "bid=?", bid).Error
+	return comments, err
 
 }
 
-func FindCommentByAuthor(aid string)([]blogs.Comment,error){
-	db:=model.GetDB()
+func FindCommentByAuthor(aid string) ([]blogs.Comment, error) {
+	db := model.GetDB()
 	defer db.Close()
 	var comments []blogs.Comment
-	err:=db.Model(&blogs.Comment{}).Find(&comments,"aid=?",aid).Error
-	if err != nil {
-		return []blogs.Comment{},err
-	}else {
-		return comments,err
-	}
+	err := db.Model(&blogs.Comment{}).Find(&comments, "aid=?", aid).Error
+	return comments, err
 }

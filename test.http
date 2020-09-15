@@ -1,13 +1,22 @@
+GET http://localhost:8888/blog/view_count?bid=c3426a5b-8e19-0be7-d058-25e10dcf3113
+Accept: application/json
+Token:zBWxR28rKOgfuSXD4dZZ1aWGFQI=
+###
+DELETE http://localhost:8888/blog/blog?bid=674a87f1-5087-9241-f612-5dfe4a9506a9
+Accept: application/json
+Token: 6408a53b-50d2-3daf-cc93-868c284dbcc7
+###
 GET http://localhost:8888/author/info?id=b00b16dd-c37b-2608-0083-e3013e7daea4
 Accept: application/json
 
 ###
 GET http://localhost:8888/blog/all?id=ppppp
 Accept: application/json
-
+Token: 08BvPeQwo8Lj76GEdS+0ZTSbGKo=
 ###
 POST http://localhost:8888/blog/blog
 Content-Type: application/json
+Token: zBWxR28rKOgfuSXD4dZZ1aWGFQI=
 
 {"title": "this is a title","author": "ppppp","content": "this is content"}
 
@@ -20,12 +29,12 @@ Content-Type: application/json
 ###
 GET http://localhost:8888/blog/detail?id=674a87f1-5087-9241-f612-5dfe4a9506a9
 Accept: application/json
-
+Token: ÓÀo=ä0£Âãï¡u/´e4ª
 ###
 POST http://localhost:8888/account/login
 Content-Type: application/json
 
-{"account": "ppp","password":"123456"}
+{"account": "ppppp","password":"123456"}
 
 ###
 POST http://localhost:8888/account/register
